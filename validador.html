@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<input type="text" id="texto">
+		<h2 id="resultado"></h2>
+	
+	<script src="jquery-3.3.1.min.js"> </script>
+
+	<script>
+		$(document).ready(function() {
+		$('#texto').change(function() {
+			
+			// se toma el valor del input
+		texto = $('#texto').val();
+			//se implementa el trim para que no permita espacios solamente
+		texto = texto.trim();
+			//guarda la posición del simbolo '<' en la cadena, si no lo encuentra el valor será -1
+		index = (texto.indexOf('<'));
+			//pregunta si '<' está al inicio de la cadena, o si la cadena es vacía
+		if (index == 0 || texto == '') {
+			//envía el mensaje de error
+			$('#resultado').text('Error');
+		
+		} else {
+			//entra aquí si es una cadena valida
+			$('#resultado').text(texto);
+		}
+		});
+	});
+	</script>
+</body>
+</html>
