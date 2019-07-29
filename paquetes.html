@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Creador de paquetes</title>
+</head>
+<body>
+	<style>
+		.oculto{display:none;}
+		.visible{display:block;}
+	</style>
+	<div id="inputs" class="hide">
+	          CertFolio
+	<input type="text" id="CertFolio" value="FOLIO"> <br>
+              CertCURP
+    <input type="text" id="CertCURP" value="CURP"> <br>
+              CertStatus
+    <input type="text" id="CertStatus" value="S"> <br>
+              CertApe1
+    <input type="text" id="CertApe1" value="APELLIDO"> <br>
+              CertApe2
+    <input type="text" id="CertApe2" value="APELLIDO"> <br>
+              CertNombre
+    <input type="text" id="CertNombre" value="NOMBRE"> <br>
+              CertCicIni
+    <input type="text" id="CertCicIni" value="2018"> <br>
+              NivClave
+    <input type="text" id="NivClave" value="2"> <br>
+              EscCve
+    <input type="text" id="EscCve" value="CCT"> <br>
+              EscNombre
+    <input type="text" id="EscNombre" value="NOMBRE ESCUELA"> <br>
+              EscMunicipio
+    <input type="text" id="EscMunicipio" value="NOMBRE MUNICIPIO"> <br>
+              CertFecha
+    <input type="text" id="CertFecha" value="12/06/2019"> <br>
+              AluMatricula
+    <input type="text" id="AluMatricula" value="MATRICULA"> <br>
+              AluPromedio
+    <input type="text" id="AluPromedio" value="9.0"> <br>
+	</div>
+			  Cantidad de alumnos
+    <input type="text" id="cantidad" >
+    <button id="ejecutar">Ejecutar</button>
+    <div>
+    		$xml='&lt;CertificadoCollection xmlns="YoremiaCert"&gt;
+    	<p id="response">
+     		
+    	</p>
+    		&lt;/CertificadoCollection&gt;';
+    </div>
+    <script src="jquery-3.3.1.min.js"> </script>
+    <script>
+    	$(document).ready(function() {
+    		$('#ejecutar').click(function() {
+			CertConsecutivo = $('#CertConsecutivo').val();
+			CertFolio = $('#CertFolio').val();
+			CertCURP = $('#CertCURP').val();
+			CertStatus = $('#CertStatus').val();
+			CertApe1 = $('#CertApe1').val();
+			CertApe2 = $('#CertApe2').val();
+			CertNombre = $('#CertNombre').val();
+			CertCicIni = $('#CertCicIni').val();
+			NivClave = $('#NivClave').val();
+			EscCve = $('#EscCve').val();
+			EscNombre = $('#EscNombre').val();
+			EscMunicipio = $('#EscMunicipio').val();
+			CertFecha = $('#CertFecha').val();
+			AluMatricula = $('#AluMatricula').val();
+			AluPromedio = $('#AluPromedio').val();
+			cantidad = $('#cantidad').val();
+			console.log('fuera del for');
+			$('#inputs').removeClass('visible');
+			$('#inputs').addClass('oculto');
+			var cadena = [];
+			for (var i = 1; i <= cantidad; i++) {
+				console.log('en el for');
+			
+				cadena.push("&lt;Certificado&gt;<br>&lt;CertConsecutivo&gt;"+i+"&lt;/CertConsecutivo&gt;<br>&lt;CertFolio&gt;"+CertFolio+i+"&lt;/CertFolio&gt;<br> &lt;CertCURP&gt;"+CertCURP+i+"&lt;/CertCURP&gt;<br>&lt;CertStatus&gt;"+CertStatus+"&lt;/CertStatus&gt;<br>&lt;CertApe1&gt;"+CertApe1+i+"&lt;/CertApe1&gt;<br>&lt;CertApe2&gt;"+CertApe2+i+"&lt;/CertApe2&gt;<br>&lt;CertNombre&gt;"+CertNombre+i+"&lt;/CertNombre&gt;<br>&lt;CertCicIni&gt;"+CertCicIni+"&lt;/CertCicIni&gt;<br>&lt;NivClave&gt;"+NivClave+"&lt;/NivClave&gt;<br>&lt;EscCve&gt;"+EscCve+"&lt;/EscCve&gt;<br>&lt;EscNombre&gt;"+EscNombre+i+"&lt;/EscNombre&gt;<br>&lt;EscMunicipio&gt;"+EscMunicipio+i+"&lt;/EscMunicipio&gt;<br>&lt;CertFecha&gt;"+CertFecha+"&lt;/CertFecha&gt;<br>&lt;AluMatricula&gt;"+AluMatricula+i+"&lt;/AluMatricula&gt;<br>&lt;AluPromedio&gt;"+AluPromedio+"&lt;/AluPromedio&gt;<br>&lt;/Certificado&gt;<br>");
+			}
+
+			$('#response').html(cadena);
+		});
+    	});
+    </script>
+</body>
+</html>
